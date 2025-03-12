@@ -8,10 +8,28 @@ if (empty($moto)) {
     exit();
 } elseif (strtolower($moto) == 'ktm 300 tpi') {
     $_SESSION['reto_ktm'] = true;
-    header('Location: suzuki.php'); // Cambiar la redirección a la pregunta de Suzuki
+    $_SESSION['intentos_ktm'] = 0; // Reiniciar los intentos si la respuesta es correcta
+    header('Location: views/final.html'); // Redirigir a la página de finalización
     exit();
 } else {
-    $_SESSION['error_mensaje'] = "Datos incorrectos. Pista: asegúrate de que la moto es una KTM con sistema de inyección directa de combustible.";
+    if (!isset($_SESSION['intentos_ktm'])) {
+        $_SESSION['intentos_ktm'] = 1;
+    } else {
+        $_SESSION['intentos_ktm']++;
+    }
+
+    if ($_SESSION['intentos_ktm'] == 1) {
+        $_SESSION['error_mensaje'] = "Datos incorrectos. Pista 1: Es una moto austriaca.";
+    } elseif ($_SESSION['intentos_ktm'] == 2) {
+        $_SESSION['error_mensaje'] = "Datos incorrectos. Pista 2: Es una moto de la serie EXC.";
+    } elseif ($_SESSION['intentos_ktm'] == 3) {
+        $_SESSION['error_mensaje'] = "Datos incorrectos. Pista 3: El modelo es 300 TPI.";
+    } else {
+        $_SESSION['error_mensaje'] = "Lo siento, has alcanzado el límite de intentos.";
+        header('Location: views/perdida.php'); // Redirigir a la página de pérdida
+        exit();
+    }
+
     header('Location: ktm.php');
     exit();
 }

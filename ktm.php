@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container">
-        <h2>Reto Moto</h2>
+        <h2>Reto ktm</h2>
         <p>Pista: Esta moto es una máquina potente y ligera diseñada para el enduro, con un sistema de inyección directa de combustible. ¿Cuál es?</p>
         <form method="post" action="validacion_ktm.php">
             <input type="text" name="moto" placeholder="Ingresa el nombre de la moto" required>
@@ -19,7 +19,7 @@
         session_start();
         if (isset($_SESSION['error_mensaje'])) {
             echo '<p>' . $_SESSION['error_mensaje'] . '</p>';
-            echo '<a href="ktm.html"><button>Volver a Intentar</button></a>';
+            echo '<a href="ktm.php"><button>Volver a Intentar</button></a>';
             unset($_SESSION['error_mensaje']);
         }
         ?>
