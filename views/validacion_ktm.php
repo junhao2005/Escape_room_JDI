@@ -9,7 +9,7 @@ if (empty($moto)) {
 } elseif (strtolower($moto) == 'ktm 300 tpi') {
     $_SESSION['reto_ktm'] = true;
     $_SESSION['intentos_ktm'] = 0; // Reiniciar los intentos si la respuesta es correcta
-    header('Location: views/final.html'); // Redirigir a la página de finalización
+    header('Location: yamaha.php'); // Redirigir a la página de finalización
     exit();
 } else {
     if (!isset($_SESSION['intentos_ktm'])) {
@@ -26,7 +26,7 @@ if (empty($moto)) {
         $_SESSION['error_mensaje'] = "Datos incorrectos. Pista 3: El modelo es 300 TPI.";
     } else {
         $_SESSION['error_mensaje'] = "Lo siento, has alcanzado el límite de intentos.";
-        header('Location: views/perdida.php'); // Redirigir a la página de pérdida
+        header('Location: perdida.php'); // Redirigir a la página de pérdida
         exit();
     }
 

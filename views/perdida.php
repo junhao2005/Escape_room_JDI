@@ -10,7 +10,7 @@
     <div class="container">
         <h2>¡Lo siento!</h2>
         <p>Has alcanzado el límite de intentos. Mejor suerte la próxima vez.</p>
-        <a href="../index.html"><button>Volver a Intentar</button></a>
+        <a href="index.html"><button>Volver a Intentar</button></a>
     </div>
 </body>
 </html>
